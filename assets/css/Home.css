@@ -1,0 +1,49 @@
+@-webkit-keyframes upDown {
+  0% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(10px);
+  }
+}
+@keyframes upDown {
+  0% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(10px);
+  }
+}
+.btn-bg-light {
+  background-color: #315940;
+  -webkit-animation: upDown 1s infinite alternate;
+          animation: upDown 1s infinite alternate;
+}
+.btn-bg-light:active {
+  box-shadow: 0 0 0 10px rgba(49, 89, 64, 0.267);
+}
+
+.text-landing {
+  color: #d0c8a6;
+}
+
+.bg-section {
+  background-color: #0a191d;
+}
+
+.btn-show-poems {
+  border: white 1px solid;
+  color: white;
+}
+.btn-show-poems.red {
+  background: linear-gradient(to top, #3F0307, rgba(63, 3, 7, 0.3843137255) 60%);
+}
+.btn-show-poems.green {
+  background: linear-gradient(to top, #4a7058, #07211b 50%);
+}
+.btn-show-poems.green:active {
+  box-shadow: 0 0 0 10px rgba(49, 89, 64, 0.267);
+}
+.btn-show-poems.red:active {
+  box-shadow: 0 0 0 10px rgba(89, 49, 49, 0.267);
+}/*# sourceMappingURL=Home.css.map */

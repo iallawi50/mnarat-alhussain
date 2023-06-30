@@ -1,0 +1,35 @@
+@import "variables";
+@import "animation";
+.btn-bg-light {
+  background-color: $mainColorLight;
+  animation: upDown 1s infinite alternate;
+  &:active {
+    box-shadow: 0 0 0 10px rgba(49, 89, 64, 0.267);
+  }
+}
+
+.text-landing {
+  color: $mainTextColor;
+}
+
+.bg-section {
+  background-color: #0a191d;
+}
+
+.btn-show-poems {
+  &.red{
+    background: linear-gradient(to top, #3F0307,#3f030762 60%);
+  }
+  &.green {
+    background: linear-gradient(to top, #4a7058,#07211b 50%);
+  }
+  border: white 1px solid;
+  color: white;
+  &.green:active {
+    box-shadow: 0 0 0 10px rgba(49, 89, 64, 0.267);
+  }
+  &.red:active {
+    box-shadow: 0 0 0 10px rgba(89, 49, 49, 0.267);
+  }
+}
+
