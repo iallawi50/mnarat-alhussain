@@ -7,7 +7,7 @@ const GuestLayout = () => {
  
   return !user ? (
     <>
-      <div className="max-w-7xl mt-10 mx-auto">
+      <div className="max-w-7xl mx-auto pt-14  min-h-[calc(100vh-128px)]">
         <Outlet />
       </div>
     </>

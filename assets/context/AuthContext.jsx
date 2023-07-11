@@ -1,7 +1,6 @@
 import { createContext, useContext, useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import axios from "../../api/axios";
-import { useLocation } from "react-router-dom";
 
 const AuthContext = createContext({});
 
@@ -18,7 +17,7 @@ export const AuthProvider = ({ children }) => {
   }, [location]);
   const getUser = async () => {
     const { data } = await axios.get("/api/user");
-
+    console.log(data);
     setUser(data);
   };
 
@@ -34,13 +33,23 @@ export const AuthProvider = ({ children }) => {
       if (e.response.status == 422) setErrors(e.response.data.errors);
     }
   };
-  const register = async (name, email, password, password_confirmation) => {
-    await csrf();
+  const register = async (
+    name,
+    username,
+    email,
+    mobile,
+    type,
+    password,
+    password_confirmation
+  ) => {
     try {
       await csrf();
       await axios.post("/register", {
         name,
+        username,
         email,
+        mobile,
+        type,
         password,
         password_confirmation,
       });

@@ -1,0 +1,14 @@
+@import "variables";
+
+.btn-submit {
+  background-color: $mainColorLight;
+  color: white;
+  &:hover {
+    background-color: #3b7552;
+  }
+  &:active {
+    background-color: #184328;
+  }
+}
+
+ 

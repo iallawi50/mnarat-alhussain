@@ -1,11 +1,11 @@
-import { useState } from "react"; 
+import { useState } from "react";
 import useAuthContext from "../../context/AuthContext";
 const ForgotPassword = () => {
   const [email, setEmail] = useState("");
   const { forgotPass, errors, status } = useAuthContext();
   const handleForgotPassword = async (event) => {
     event.preventDefault();
-    forgotPass(email); 
+    forgotPass(email);
   };
   return (
     <>

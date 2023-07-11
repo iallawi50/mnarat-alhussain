@@ -1,0 +1,56 @@
+@import "variables";
+.btn-bg-light-poem {
+  background-color: $mainColorLight;
+  &.red {
+    background-color: #8b0000;
+  }
+  &:active {
+    box-shadow: 0 0 0 10px rgba(49, 89, 64, 0.267);
+  }
+  &.red:active {
+    box-shadow: 0 0 0 10px rgba(139, 0, 0, 0.267);
+  }
+}
+.poem-type {
+  background-color: $mainColorLight;
+  color: white;
+}
+
+article {
+  white-space: pre-line;
+  font-size: 16px;
+  height: 199px;
+  overflow: hidden;
+}
+.swiper-wrapper {
+  align-items: stretch !important;
+}
+
+.swiper-slide {
+  height: unset !important;
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
+}
+
+.active {
+  background: linear-gradient(to top, #4a7058, #13483c 50%);
+  color: white !important;
+}
+
+.avatar-border {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 10px;
+  padding: 2px;
+}
+.avatar-border::before {
+  content: "";
+  position: absolute;
+  border: solid 2px #d0c8a6;
+  border-radius: 50%;
+  width: calc(100% + 5px);
+  height: calc(100% + 5px);
+}

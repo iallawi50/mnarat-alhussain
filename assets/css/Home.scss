@@ -1,5 +1,15 @@
 @import "variables";
-@import "animation";
+@import "animation"; 
+.btn-bg-light-poem {
+  background-color: $mainColorLight;
+ 
+  &:active {
+    box-shadow: 0 0 0 10px rgba(49, 89, 64, 0.267);
+  }
+  &.red:active {
+    box-shadow: 0 0 0 10px rgba(139, 0, 0, 0.267);
+  }
+}
 .btn-bg-light {
   background-color: $mainColorLight;
   animation: upDown 1s infinite alternate;
@@ -17,11 +27,11 @@
 }
 
 .btn-show-poems {
-  &.red{
-    background: linear-gradient(to top, #3F0307,#3f030762 60%);
+  &.gold {
+    background: linear-gradient(to top, #706a4a, #07211b 100%);
   }
   &.green {
-    background: linear-gradient(to top, #4a7058,#07211b 50%);
+    background: linear-gradient(to top, #4a7058, #07211b 50%);
   }
   border: white 1px solid;
   color: white;
@@ -33,3 +43,6 @@
   }
 }
 
+.text-green {
+  color: $mainColorLight;
+}

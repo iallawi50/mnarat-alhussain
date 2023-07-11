@@ -11,8 +11,8 @@ const Navbar = () => {
   return (
     <>
       <nav className="bg-[#315940] p-5 text-white">
-        <div className="flex flex-row-reverse justify-between">
-          <h3>{user ? user.name : "منارات الحسين"}</h3>
+        <div className="flex flex-row justify-between">
+          <h3>منارات الحسين</h3>
           <ul className="flex">
             <li>
               <Link to="/">الرئيسية</Link>
@@ -20,13 +20,13 @@ const Navbar = () => {
             {!user ? (
               <>
                 <li>
-                  <Link to="/login" className="mx-5">
+                  <Link to="/login" className="mr-5">
                     تسجيل دخول
                   </Link>
                 </li>
-                <li>
+                {/* <li>
                   <Link to="/register">انشاء حساب</Link>
-                </li>
+                </li> */}
               </>
             ) : (
               <li className="mr-5" onClick={logout}>
@@ -36,6 +36,7 @@ const Navbar = () => {
           </ul>
         </div>
       </nav>
+      
     </>
   );
 };

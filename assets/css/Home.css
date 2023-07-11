@@ -14,6 +14,16 @@
     transform: translateY(10px);
   }
 }
+.btn-bg-light-poem {
+  background-color: #315940;
+}
+.btn-bg-light-poem:active {
+  box-shadow: 0 0 0 10px rgba(49, 89, 64, 0.267);
+}
+.btn-bg-light-poem.red:active {
+  box-shadow: 0 0 0 10px rgba(139, 0, 0, 0.267);
+}
+
 .btn-bg-light {
   background-color: #315940;
   -webkit-animation: upDown 1s infinite alternate;
@@ -35,8 +45,8 @@
   border: white 1px solid;
   color: white;
 }
-.btn-show-poems.red {
-  background: linear-gradient(to top, #3F0307, rgba(63, 3, 7, 0.3843137255) 60%);
+.btn-show-poems.gold {
+  background: linear-gradient(to top, #706a4a, #07211b 100%);
 }
 .btn-show-poems.green {
   background: linear-gradient(to top, #4a7058, #07211b 50%);
@@ -46,4 +56,8 @@
 }
 .btn-show-poems.red:active {
   box-shadow: 0 0 0 10px rgba(89, 49, 49, 0.267);
+}
+
+.text-green {
+  color: #315940;
 }/*# sourceMappingURL=Home.css.map */
