@@ -23,8 +23,6 @@ export const AuthProvider = ({ children }) => {
   };
 
   const login = async (email, password) => {
-    await csrf();
-
     try {
       await csrf();
       await axios.post("/login", { email, password });
