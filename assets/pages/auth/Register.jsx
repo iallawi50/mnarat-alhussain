@@ -136,7 +136,7 @@ const Register = () => {
             <input
               id="password"
               className="bg-transparent p-3 border-[1px] rounded-md mb-2 text-white"
-              type="text"
+              type="password"
               placeholder="كلمة المرور"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
@@ -163,6 +163,7 @@ const Register = () => {
               id="password_confirmation"
               className="bg-transparent p-3 border-[1px] rounded-md mb-2 text-white"
               name="password"
+              type="password"
               placeholder="تأكيد كلمة المرور"
               value={password_confirmation}
               onChange={(e) => setPasswordConfirmation(e.target.value)}
