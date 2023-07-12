@@ -1,7 +1,6 @@
 import useAuthContext from "../../context/AuthContext";
 import landing from "../../imgs/landing.png";
-import osama from "../../imgs/osama.png";
-import mohammed from "../../imgs/mohammed2.png";
+ 
 import "../../css/Home.css";
 import "../../css/master.css";
 import { Link } from "react-router-dom";
@@ -16,20 +15,12 @@ const Home = () => {
       const response = await axios.get("/api/poem/getSomePoems");
       setPoems(response.data.data);
       console.log(poems);
-    } catch (error) {
-      console.log(error.response);
-    }
+    } catch (error) {}
   };
 
   useEffect(() => {
-    getLastPoems(); 
-  },[])
-
-  useEffect(()=> {
-    console.log("###")
-    console.log(poems)
-    console.log("###")
-  }, [poems])
+    getLastPoems();
+  }, []);
 
   return (
     <>
@@ -42,12 +33,16 @@ const Home = () => {
             <h1 className="text-5xl text-landing text-landing font-bold my-10">
               منارات الحسين
             </h1>
-            <p className="text-white text-md sm:text-xl">
+            <p className="text-white text-lg sm:text-xl">
               فمذ كنت طفلاً رأيت الحسين مناراً إلى ضوئهِ أنتمـي
             </p>
           </div>
         </div>
-
+        {(user && user.type == 0) && (
+          <div className="bg-[#315940] text-white text-center p-4">
+            تم تسجيلك في الموقع .. سوف يتم التواصل معك لتفعيل حسابك كـ شاعر
+          </div>
+        )}
         <a
           href="#more"
           className="btn-bg-light p-5 w-16 h-16 flex justify-center items-center rounded-full btn-shadow transition"
@@ -153,9 +148,10 @@ const Home = () => {
             </button>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 text-center px-2">
-            {poems && poems.map((el, id) => {
-              return <Poem key={id} data={el} />
-            })}
+            {poems &&
+              poems.map((el, id) => {
+                return <Poem key={id} data={el} />;
+              })}
           </div>
           <div className="w-full text-center">
             <button className="btn-show-poems green mt-10 mb-14 p-2 rounded-lg text-4xl transition">
@@ -166,8 +162,6 @@ const Home = () => {
       </div>
 
       {/* END SECION TWO */}
-
-      
     </>
   );
 };

@@ -8,6 +8,7 @@ export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [errors, setErrors] = useState("");
   const [status, setStatus] = useState("");
+  const [profile, setProfile] = useState(null);
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -103,6 +104,15 @@ export const AuthProvider = ({ children }) => {
     }
   };
 
+  const getProfile = async (username) => {
+    try {
+      const res = await axios.get(`api/profile/${username}`);
+      setProfile(res.data);
+    } catch (error) {
+      
+    }
+  };
+
   useEffect(() => {
     if (!user) {
       getUser();
@@ -121,6 +131,8 @@ export const AuthProvider = ({ children }) => {
         logout,
         forgotPass,
         resetPass,
+        getProfile,
+        profile,
       }}
     >
       {children}

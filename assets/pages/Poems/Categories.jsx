@@ -8,8 +8,7 @@ import { FreeMode } from "swiper/modules";
 import usePoemContext from "../../context/PoemContext";
 import { useState } from "react";
 const Categories = () => {
-  const { category, setCategory } = usePoemContext();
-  const [Array, setArray] = useState([1, 2, 3, 4, 5, 6, 7, 8, 9]);
+  const { category, setCategory, getCategories, categories } = usePoemContext(); 
   return (
     <div className="mx-4">
       <Swiper
@@ -19,15 +18,30 @@ const Categories = () => {
         modules={[FreeMode]}
         className="mySwiper"
       >
-        {Array &&
-          Array.map((el, id) => {
+        <SwiperSlide
+          key={0}
+          onClick={(e) => {
+            setCategory(0);
+          }}
+          className={`my-10 items-center justify-center px-5 py-2 text-center bg-[#D9D9D9] text-[#466B54] text-bold rounded-lg ${
+            0 == category ? "active" : "cursor-pointer"
+          } `}
+        >
+          جميع القصائد
+        </SwiperSlide>
+        {categories &&
+          categories.map((el, id) => {
             return (
-              <SwiperSlide key={id} onClick={(e) => {
-                setCategory(id)
-              }}
-                className={`my-10 items-center justify-center px-5 py-2 text-center bg-[#D9D9D9] text-[#466B54] text-bold rounded-lg ${id == category ? 'active' : 'cursor-pointer'} `}
+              <SwiperSlide
+                key={el.id}
+                onClick={(e) => {
+                  setCategory(el.id);
+                }}
+                className={`my-10 items-center justify-center px-5 py-2 text-center bg-[#D9D9D9] text-[#466B54] text-bold rounded-lg ${
+                  el.id == category ? "active" : "cursor-pointer"
+                } `}
               >
-                الجميع
+                {el.title}
               </SwiperSlide>
             );
           })}

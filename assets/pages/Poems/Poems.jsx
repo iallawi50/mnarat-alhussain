@@ -6,9 +6,9 @@ const Poems = () => {
   const { poems, getAllPoems } = usePoemContext();
 
   useEffect(() => {
-    getAllPoems();
+    console.log(poems)
  
-  }, []);
+  }, [poems]);
 
   return (
     <>

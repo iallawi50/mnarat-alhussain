@@ -17,36 +17,40 @@ import ShowPoem from "./assets/pages/Poems/Show";
 import AddPoem from "./assets/Components/AddPoem";
 import AddPoemPage from "./assets/pages/Poems/AddPoemPage";
 import { PoemProvider } from "./assets/context/PoemContext";
+import Profile from "./assets/pages/Profile/Profile";
 function App() {
   return (
     <>
-      <Router>
-        <AuthProvider>
-          <PoemProvider>
-            <Navbar />
-            <ScrollToTop />
-            <Routes>
-              <Route path="/" exact element={<Home />} />
-              <Route path="/poems" exact element={<IndexPoems />} />
-              <Route path="/poem/s/:slug" exact element={<ShowPoem />} />
+      <section className="min-h-[calc(100vh-64px)]">
+        <Router>
+          <AuthProvider>
+            <PoemProvider>
+              <Navbar />
+              <ScrollToTop />
+              <Routes>
+                <Route path="/" exact element={<Home />} />
+                <Route path="/poems" exact element={<IndexPoems />} />
+                <Route path="/poem/s/:slug" exact element={<ShowPoem />} />
+                <Route path="/p/:username" exact element={<Profile />} />
 
-              <Route element={<AuthLayout />}>
-                <Route path="/poem/create" element={<AddPoemPage />} />
-              </Route>
-              <Route element={<GuestLayout />}>
-                <Route path="/login" element={<Login />} />
-                <Route path="/register/:typeAccount" element={<Register />} />
-                <Route path="/forgot-password" element={<ForgotPassword />} />
-                <Route
-                  path="/password-reset/:token"
-                  element={<ResetPassword />}
-                />
-              </Route>
-            </Routes>
-            <AddPoem />
-          </PoemProvider>
-        </AuthProvider>
-      </Router>
+                <Route element={<AuthLayout />}>
+                  <Route path="/poem/create" element={<AddPoemPage />} />
+                </Route>
+                <Route element={<GuestLayout />}>
+                  <Route path="/login" element={<Login />} />
+                  <Route path="/register/:typeAccount" element={<Register />} />
+                  <Route path="/forgot-password" element={<ForgotPassword />} />
+                  <Route
+                    path="/password-reset/:token"
+                    element={<ResetPassword />}
+                  />
+                </Route>
+              </Routes>
+              <AddPoem />
+            </PoemProvider>
+          </AuthProvider>
+        </Router>
+      </section>
 
       <Footer />
     </>

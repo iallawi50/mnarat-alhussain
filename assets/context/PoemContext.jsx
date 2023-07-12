@@ -12,41 +12,79 @@ export const PoemProvider = ({ children }) => {
   const [poems, setPoems] = useState();
   const [errors, setErrors] = useState("");
   const [status, setStatus] = useState(null);
+  const [poem, setPoem] = useState();
 
-  const getAllPoems = async () => {
+  useEffect(() => {
+    getPoemsByCategory(category);
+  }, [category]);
+  useEffect(() => {
+    getCategories();
+    // getAllPoems();
+    getPoemsByCategory();
+  }, []);
+
+  const getCategories = async () => {
     try {
-      const response = await axios.get("/api/poem");
-      setPoems(response.data.data);
-    } catch (error) {
-      console.log(error.response);
+      await csrf();
+      const res = await axios.get(`api/category/`);
+      setCategories(res.data.data);
+    } catch (e) {
+      console.log(e);
     }
   };
 
-  const create = async (title, body, type_phase, type_poem) => {
+  const getPoemsByCategory = async (id) => {
     try {
-      await csrf(); 
+      await csrf();
+      const res = await axios.get(`api/category/${id}`);
+      setPoems(res.data.data);
+    } catch (e) {
+      console.log(e);
+    }
+  };
+  const getPoem = async (slug) => {
+    try {
+      const response = await axios.get(`/api/poem/${slug}`);
+      setPoem(response.data);
+      console.log(response.data);
+    } catch (error) {}
+  };
+
+  const create = async (title, body, type_phase, type_poem, tags) => {
+    try {
+      await csrf();
       const res = await axios.post("/api/poem", {
         title,
         body,
         type_phase,
-        type_poem, 
+        type_poem,
+        tags,
       });
-      setStatus(201)
+      setStatus(201);
       Swal.fire({
         icon: "success",
         title: "تم نشر القصيدة",
         text: "",
         confirmButtonText: "موافق",
         confirmButtonColor: "#315940",
-
       });
     } catch (e) {
       if (e.response.status == 422) setErrors(e.response.data.errors);
-      console.log(errors);
     }
   };
 
-  const values = { category, setCategory, poems, getAllPoems, create, status, errors };
+  const values = {
+    category,
+    setCategory,
+    poems,
+    // getAllPoems,
+    create,
+    status,
+    errors,
+    categories,
+    getPoem,
+    poem,
+  };
   return <PoemContext.Provider value={values}>{children}</PoemContext.Provider>;
 };
 export default function usePoemContext() {

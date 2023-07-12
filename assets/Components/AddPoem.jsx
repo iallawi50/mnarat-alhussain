@@ -1,15 +1,22 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import useAuthContext from "../context/AuthContext";
 
 const AddPoem = () => {
   const { user, getUser } = useAuthContext();
+  const location = useLocation();
+  const hideOnPaths = ["/poem/create"];
+    const shouldHideComponent = hideOnPaths.includes(location.pathname);
 
   useEffect(() => {
     if (!user) {
       getUser();
     }
   });
+
+    if (shouldHideComponent) {
+      return null; // إخفاء المكون بناءً على المسار الحالي
+    }
 
   return (
     <>
@@ -18,8 +25,8 @@ const AddPoem = () => {
           {user.is_active && (
             <>
               <Link
-                to="/poem/create"
-                className="btn-bg-light-poem fixed bottom-10 right-10 w-16 h-16 rounded-full transition flex justify-center items-center"
+                to="/poem/create" 
+                className="btn-bg-light-poem add-poem fixed bottom-10 right-10 w-16 h-16 rounded-full transition flex justify-center items-center"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
