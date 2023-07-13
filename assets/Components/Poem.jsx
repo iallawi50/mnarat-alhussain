@@ -98,7 +98,7 @@ const Poem = (props) => {
                   <h4>عرض</h4>
                 </div>
               </Link>
-              <div className="flex flex-col items-center">
+              {/* <div className="flex flex-col items-center">
                 <div className="btn-bg-light-poem red p-3 w-14 h-14 mb-2 flex justify-center items-center rounded-full btn-shadow transition cursor-pointer">
                   <svg
                     width="34"
@@ -114,7 +114,7 @@ const Poem = (props) => {
                   </svg>
                 </div>
                 <h4>بلاغ</h4>
-              </div>
+              </div> */}
             </div>
           </footer>
         </div>

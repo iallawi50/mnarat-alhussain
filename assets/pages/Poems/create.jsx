@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
  
 import usePoemContext, { PoemProvider } from "../../context/PoemContext";
 
-const AddPoemPage = () => {
+const Create = () => {
   const [title, setTitle] = useState("");
   const [body, setBody] = useState("");
   const [tags, setTags] = useState([]);
@@ -205,4 +205,4 @@ const AddPoemPage = () => {
   );
 };
 
-export default AddPoemPage;
+export default Create;

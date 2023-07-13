@@ -66,7 +66,7 @@ export const PoemProvider = ({ children }) => {
         title: "تم نشر القصيدة",
         text: "",
         confirmButtonText: "موافق",
-        confirmButtonColor: "#315940",
+        confirmButtonColor: "#407d57",
       });
     } catch (e) {
       if (e.response.status == 422) setErrors(e.response.data.errors);

@@ -1,6 +1,6 @@
 import axios from "axios";
 
 export default axios.create({
-  baseURL: "https://manarat.svod.app/",
+  baseURL: "http://localhost:8000",
   withCredentials: true,
 });

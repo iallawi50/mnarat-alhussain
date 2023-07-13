@@ -15,7 +15,7 @@ import ResetPassword from "./assets/pages/Auth/ResetPassword";
 import IndexPoems from "./assets/pages/Poems/Index";
 import ShowPoem from "./assets/pages/Poems/Show";
 import AddPoem from "./assets/Components/AddPoem";
-import AddPoemPage from "./assets/pages/Poems/AddPoemPage";
+import Create from "./assets/pages/Poems/create";
 import { PoemProvider } from "./assets/context/PoemContext";
 import Profile from "./assets/pages/Profile/Profile";
 function App() {
@@ -34,7 +34,7 @@ function App() {
                 <Route path="/p/:username" exact element={<Profile />} />
 
                 <Route element={<AuthLayout />}>
-                  <Route path="/poem/create" element={<AddPoemPage />} />
+                  <Route path="/poem/create" element={<Create />} />
                 </Route>
                 <Route element={<GuestLayout />}>
                   <Route path="/login" element={<Login />} />

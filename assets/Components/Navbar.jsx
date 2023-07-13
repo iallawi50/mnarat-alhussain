@@ -29,14 +29,20 @@ const Navbar = () => {
                 </li> */}
               </>
             ) : (
-              <li className="mr-5" onClick={logout}>
-                <button>تسجيل خروج</button>
-              </li>
+              <>
+                <li className="mr-5" onClick={logout}>
+                  <button>تسجيل خروج</button>
+                </li>
+                <li>
+                  <Link to={`/p/${user.username}`} className="mr-5">
+                    حسابي
+                  </Link>
+                </li>
+              </>
             )}
           </ul>
         </div>
       </nav>
-      
     </>
   );
 };
